@@ -1,5 +1,5 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+# ARG BUILD_FROM  <-- COMMENT THIS LINE OUT (or remove it)
+FROM ghcr.io/home-assistant/amd64-base:2024.05.0  # Or another recent, stable version
 
 # Define environment variables
 # Use this variable when creating a container to specify the MQTT broker host.
