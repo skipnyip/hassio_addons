@@ -1,5 +1,4 @@
-FROM ghcr.io/home-assistant/amd64-base:3.20
-# Stick with 3.20 for now, as 3.21 and 3.22 are also problematic for you.
+FROM ghcr.io/home-assistant/amd64-base:3.20 # Stick with 3.20
 
 # Define environment variables
 # Use this variable when creating a container to specify the MQTT broker host.
@@ -30,8 +29,9 @@ COPY entry.sh rtl_433_mqtt_hass.py /scripts/
 # make entry.sh and rtl_433_mqtt_hass.py executable.
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.20/main" > /etc/apk/repositories && \
     echo "https://dl-cdn.alpinelinux.org/alpine/v3.20/community" >> /etc/apk/repositories && \
-    apk update && \
-    apk add --no-cache rtl-sdr rtl_433 libusb mosquitto-clients python3 py3-paho-mqtt && \
+    apk cache clean && \  # Add this line to clear cache
+    apk update --quiet && \ # Added --quiet
+    apk add --no-cache --verbose rtl-sdr rtl_433 libusb mosquitto-clients python3 py3-paho-mqtt && \ # Added --verbose
     chmod +x /scripts/entry.sh && \
     chmod +x /scripts/rtl_433_mqtt_hass.py
 
