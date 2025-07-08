@@ -1,4 +1,4 @@
-FROM ghcr.io/home-assistant/amd64-base:3.21
+FROM ghcr.io/home-assistant/amd64-base:3.20
 
 # Define environment variables
 # Use this variable when creating a container to specify the MQTT broker host.
