@@ -42,7 +42,7 @@
     "discovery_prefix": "str",
     "discovery_interval": "int",
     "auto_discovery": "bool",
-    "debug": "bool
+    "debug": "bool"
    },
   "build": {
     "default": "ghcr.io/home-assistant/{arch}-base",
