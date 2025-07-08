@@ -30,7 +30,8 @@ COPY entry.sh rtl_433_mqtt_hass.py /scripts/
 # make entry.sh and rtl_433_mqtt_hass.py executable.
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.20/main" > /etc/apk/repositories && \
     echo "https://dl-cdn.alpinelinux.org/alpine/v3.20/community" >> /etc/apk/repositories && \
-    apk update --quiet --force-online && \
+    apk update --quiet && \
+    apk upgrade && \
     apk add --no-cache --verbose rtl-sdr rtl_433 libusb mosquitto-clients python3 py3-paho-mqtt && \
     chmod +x /scripts/entry.sh && \
     chmod +x /scripts/rtl_433_mqtt_hass.py
