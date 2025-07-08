@@ -1,5 +1,5 @@
-FROM ghcr.io/home-assistant/amd64-base:3.19 
-# Using Alpine 3.19 base image
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 # Define environment variables
 # Use this variable when creating a container to specify the MQTT broker host.
@@ -28,11 +28,7 @@ WORKDIR /data
 COPY entry.sh rtl_433_mqtt_hass.py /scripts/
 # install rtl_433, rtl-sdr, libusb, mosquitto-clients, python3 py3-paho-mqtt; and deps of rtl_433_mqtt_hass.py.
 # make entry.sh and rtl_433_mqtt_hass.py executable.
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/v3.19/main" > /etc/apk/repositories && \
-    echo "https://dl-cdn.alpinelinux.org/alpine/v3.19/community" >> /etc/apk/repositories && \
-    apk update --quiet && \
-    apk upgrade && \
-    apk add --no-cache --verbose rtl-sdr rtl_433 libusb mosquitto-clients python3 py3-paho-mqtt && \
+RUN apk add --no-cache rtl-sdr rtl_433 libusb mosquitto-clients python3 py3-paho-mqtt && \
     chmod +x /scripts/entry.sh && \
     chmod +x /scripts/rtl_433_mqtt_hass.py
 
