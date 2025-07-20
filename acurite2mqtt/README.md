@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Acurite2mqtt
+# Home Assistant Add-on: acurite2mqtt_skipnyip
 
 A Home Assistant addon for a software defined radio tuned to listen for 433MHz RF transmissions from Acurite Weather Sensors and republish the data via MQTT.
 
@@ -6,7 +6,7 @@ A Home Assistant addon for a software defined radio tuned to listen for 433MHz R
 
 Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage add-on repositories**:
 
-    https://github.com/thejeffreystone/hassio_addons
+    https://github.com/skipnyip/hassio_addons
 
 Then search for `Accurite to home Assistant` and install it.
 
@@ -63,7 +63,7 @@ This determines what devices the software listens to. `-R 11 -R 40 -R 41 -R 55 -
 is the Accurite sensors. If the protocol is blank it will listen for all devices
 which may be noisy.
 
-For all possible protocols visit <https://github.com/thejeffreystone/hassio_addons/blob/main/acurite2mqtt/PROTOCOLS.md>
+For all possible protocols visit <https://github.com/skipnyip/hassio_addons/blob/main/acurite2mqtt_skipnyip/PROTOCOLS.md>
 
 ### Option: `whitelist_enable`
 
