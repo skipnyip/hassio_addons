@@ -7,7 +7,7 @@
 
 Add the repository URL under **Supervisor → Add-on store → ⋮ → Manage add-on repositories**:
 
-    https://github.com/skipnyip/hassio_addons
+    https://github.com/skipnyip/skipnyip_addons
 
 The repository includes two add-ons:
 
